@@ -44,7 +44,7 @@ RUN git clone https://github.com/eulerto/wal2json -b master --single-branch \
 COPY postgresql.conf.sample /usr/share/postgresql/postgresql.conf.sample
 
 # Copy the script which will initialize the replication permissions
-COPY /docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
+COPY init-permissions.sh /docker-entrypoint-initdb.d
 RUN apt-get update -y \
 && apt-get install -y python3-pip python3.6 libffi-dev libssl-dev libxml2-dev libxslt1-dev  zlib1g-dev libjpeg62-turbo-dev libkrb5-dev \
 && git clone https://github.com/pgaudit/pgaudit.git \
